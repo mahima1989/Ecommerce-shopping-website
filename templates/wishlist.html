@@ -1,23 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if available==True: %}
-<style>
-    .button {
-    background-color: #212121 ;
-    border: none;
-    color: rgb(245, 239, 243);
-    text-decoration: none;
-    font-size: 25px;
-  }
-  
-  .button5 {border-radius: 35%;}
-  
-  </style>
 <div class="jumbotron-fluid grey row">
 <h4>  <b class="text-justify font-weight-bold text-black text-uppercase" style="margin-left: 410px;">The content is present inside the cart</b> </h4>  
 </div>
 <hr>
 {% endif %}
+<h1 class="text-center" style="  font-family: 'Satisfy', cursive; font-size:50px;">My Wishlist</h1>
+<hr>
 {% for i in l:%}
 
 
@@ -36,8 +26,8 @@
   <div class="col-lg-9"><br>
   <h1 style="font-family: 'Roboto', sans-serif;font-size:40px; text-align:left;">{{i.brand}}</h1>
   <hr><br><b><h4 style="text-align: left;">₹{{i.price}}</h4>
-    <h5 style="text-align: left;">Quantity : <button class="button button5">{{i.quantity}}</button>        </h5>
-    <h5 style="text-align: left;">Size : <button class="button button5">{{i.size}}</button></h5>
+    <h5 style="text-align: left;">Quantity : {{i.quantity}}        </h5>
+    <h5 style="text-align: left;">Size : {{i.size}}</h5>
   <h3 style="font-size: 16px;color: rgb(131, 111, 111);text-align:left;">100% Original  
    Products
                Free Delivery on order above Rs. 799BR

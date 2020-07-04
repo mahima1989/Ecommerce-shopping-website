@@ -9,7 +9,8 @@ reg=mydb.Register
 add_to_cart=mydb.cart
 adm=mydb.Admin
 wl=mydb.wishlist
-
+orders=mydb.Orders
+stat=mydb.Status
 
 record={'name':'aditi'}
 
@@ -102,6 +103,7 @@ def lui():
 def f():
     email=session['email']
     product= [i for i in products.find({'gender':'F'})]
+    #l = [i for i in products.find({'gender':'F','price':{'$and':[{'$gt':price-500,'$lt':price+500}]}})]
     return render_template('product_list.html',products=product,email=email)    
 
 @app.route('/m')
@@ -182,15 +184,28 @@ def remove(image,dress_type,brand,colour,price,gender):
     sum=0
     for i in l:
         sum=sum+int(i['price'])*i['quantity']
-    sub_total=sum+100    
-    return render_template('cart.html',l=l,available=False,total=sum,email=email,sub_total=sub_total)
-
+    sub_total=sum+100  
+    if(len(l)==0):
+        names=[j for j in reg.find({'email':email})]
+        k=names[0]
+        name=k['fname']
+        return render_template('nocontent.html',email=email,name=name)
+    else:
+        return render_template('cart.html',l=l,available=False,total=sum,email=email,sub_total=sub_total)
+  
 @app.route('/removewishlist+<image>+<dress_type>+<brand>+<colour>+<price>+<gender>+<quantity>+<size>')
 def removewishlist(image,dress_type,brand,colour,price,gender,quantity,size):
     email=session['email']
+    quantity=int(quantity)
     wl.remove({'image':image,'dress_type':dress_type,'brand':brand,'colour':colour,'price':price,'gender':gender,'quantity':quantity,'size':size})
     l = [i for i in wl.find({'email':email})]  
-    return render_template('wishlist.html',l=l,available=False,email=email)
+    if(len(l)==0):
+        names=[j for j in reg.find({'email':email})]
+        k=names[0]
+        name=k['fname']
+        return render_template('nocontent.html',email=email,name=name)
+    else:
+        return render_template('wishlist.html',l=l,available=False,email=email)
 
 @app.route('/cart+<image>+<dress_type>+<brand>+<colour>+<price>+<gender>',methods=['POST'])
 def cart(image,dress_type,brand,colour,price,gender):
@@ -222,7 +237,14 @@ def cartroller():
     for i in l:
         sum=sum+int(i['price'])*i['quantity']
     sub_total=sum+100    
-    return render_template('cart.html',l=l,total=sum,email=email,sub_total=sub_total)
+    if(len(l)==0):
+        names=[j for j in reg.find({'email':email})]
+        k=names[0]
+        name=k['fname']
+        return render_template('nocontent.html',email=email,name=name)
+    else:
+        return render_template('cart.html',l=l,total=sum,email=email,sub_total=sub_total)
+
 
 @app.route('/wishlistaddtocart+<image>+<dress_type>+<brand>+<colour>+<price>+<gender>+<quantity>+<size>')
 def wishlistaddtocart(image,dress_type,brand,colour,price,gender,quantity,size):
@@ -255,10 +277,14 @@ def wishlist(image,dress_type,brand,colour,price,gender,quantity,size):
 def wishlistroller():
     email=session['email']
     l = [i for i in wl.find({'email':email})]
-    if(l):
-        return render_template('wishlist.html',l=l,email=email)
+    if(len(l)==0):
+        names=[j for j in reg.find({'email':email})]
+        k=names[0]
+        name=k['fname']
+        return render_template('nocontent.html',email=email,name=name)
     else:
-        return "no product in wishlist"
+        return render_template('wishlist.html',l=l,email=email)
+
 
 @app.route('/signin')
 def signin():
@@ -315,7 +341,41 @@ def search():
 @app.route('/buynow')
 def buynow():
     email=session['email']
-    pass
+    
+    order=[i for i in (add_to_cart.find({'email':email}))]
+    i=order[-1]
+    email=i['email']
+    price=i['price']
+    add_to_cart.remove({'email':email})
+    names=[j for j in reg.find({'email':email})]
+    k=names[0]
+    name=k['fname']
+    
+    orders.insert_one({'email':email,'price':price,'status':'Order Accepted'})   
+    return render_template('feedback.html',email=email,name=name)
+
+@app.route('/adminorders')
+def adminorders():
+    email=session['email']
+    order=[i for i in orders.find()]
+    return render_template('orders.html',orders=order,email=email)
+
+@app.route('/accept+<email>+<price>')
+def accept(email,price):
+    email=session['email']
+    stat.insert_one({'email':email,'price':price,'status':'Dispatched'})
+    return render_template('orders.html',email=email)
+
+@app.route('/myorders')
+def myorders():
+    email=session['email']
+    if(stat.find({'email':email,'status':'Dispatched'})):
+        l= [i for i in stat.find({'email':email,'status':'Dispatched'})]
+        
+    else:
+        l=[i for i in orders.find({'email':email})]
+    return render_template('myorders.html',hello=l,email=email)
+
 
 if __name__ == "__main__":
     app.run(debug=True)    
