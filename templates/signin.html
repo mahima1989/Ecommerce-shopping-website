@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="login" style="text-align: center;">
+<div class="card" style="width: 20rem;text-align: center;margin-left: 520px;box-shadow: 2px 2px 4px #bdbdbd;">
+  <div class="card-body">
+    <h3 class="card-title">Login</h3>
+<form action="{{ url_for('signinform') }}" method="post">
+  <br>
+  <input class="form-control" type="email" name='email' id='email' placeholder="Email" style="margin-bottom: 10px;">
+  <input class="form-control" type="password" name='password' id='password' placeholder="Password" style="margin-bottom: 10px;">
+  <br><button type="submit" style="background-color:#e7305b ;color: white;border-color:#e7305b;" class="btn btn-dark">SUBMIT</button>
+  {{ email }}
+</form>
+</div>  </div> </div>   
+{% endblock %}

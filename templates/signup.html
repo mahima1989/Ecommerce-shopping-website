@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="login" style="text-align: center;">
+  <div class="card" style="width: 26rem; height: 630px; text-align: center;margin-left: 450px;box-shadow: 2px 2px 4px #bdbdbd;">
+    <div class="card-body">
+      <h3 class="card-title" style="background-color:#e7305b ;color: white;border-color:#e7305b; ">REGISTER</h3>
+      <form action="{{ url_for('signupform') }}" method="post">
+        <input type="text" class="form-control" name='fname' id='fname' placeholder="First Name" style="margin-bottom: 10px;">
+        <input type="text" class="form-control" name='lname' id='lname' placeholder="Last Name" style="margin-bottom: 10px;">
+        <input type="email" class="form-control" name='email' id='email' placeholder="Email" style="margin-bottom: 10px;">
+        <input type="password" class="form-control" name='password' id='password' placeholder="Password" style="margin-bottom: 10px;">
+        <input type="text" class="form-control" name='ph' id='ph' placeholder="Mobile No." style="margin-bottom: 10px;">
+        <input type="text" class="form-control" name='address' id='address1' placeholder="Address" style="margin-bottom: 10px;">
+        <input type="text" class="form-control" name='city' id='city' placeholder="City" style="margin-bottom: 10px;">
+        <input type="text" class="form-control" name='state' id='state' placeholder="State" style="margin-bottom: 10px;">
+        <input type="text" class="form-control" name='zip' id='zip' placeholder="Zip-code" style="margin-bottom: 10px;">
+        <br><button type="submit" class="btn btn-dark">SUBMIT</button>
+  
+</form>
+</div>  </div> </div>  
+
+{% endblock %}

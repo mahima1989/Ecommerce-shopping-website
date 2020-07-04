@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <title>www.flutterfly.com</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="static/styles/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courgette&family=Roboto:wght@300&family=Satisfy&display=swap" rel="stylesheet">
+        
+        <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        -->
+
+        <!-- google fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courgette&family=Roboto:wght@300&family=Satisfy&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Pacifico&family=Play&family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+        
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light " id="custom-nav" style="background-color: #ffffff;">
+            <a class="navbar-brand" href="#"><img class="rounded-circle" id="logo" src="/static/images/logo.png" ></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" id="text">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" id="text">
+                  <a class="nav-link" href="f">Users</a>
+                </li>
+                <li class="nav-item dropdown" id="text">
+                  <a class="nav-link" href="m">All Orders</a>
+                </li>
+                <li class="nav-item dropdown" id="text">
+                  <a class="nav-link" href="signin">Login</a>
+                </li>
+                <li class="nav-item dropdown" id="text">
+                  <a class="nav-link" href="signup">Register</a>
+                </li>
+              </ul>
+              <form action="search" method="POST" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" id="search" name="search" placeholder="Search">
+               <i class="fa fa-search fa-2x"></i>
+              </form>
+            </div>
+            <div class="d-flex flex-row-reverse">
+              <div class="icons" ><a href="cartroller"><i class="fa fa-shopping-cart fa-2x"></i></a></div>
+              <div class="icons" ><i class="fa fa-user fa-2x"></i></div>
+              
+                </div>
+              </div>  
+            </nav>
+          <br>
+
+         <div class="auth" style="text-align: center;margin-top: 10%;margin-bottom: 10%;">
+            <form action="{{ url_for('admin') }}" method="post">
+        
+              <h6 class="text-center" style="  font-family: 'Satisfy', cursive; font-size:50px;"> Enter Auth-id for verification</h6>
+              <br>
+        
+              <input type="text" name='authid' id='authid' placeholder="Authentication ID">
+        <button type="submit">submit</button>
+        {{ name }}
+      </form> 
+         </div>   
+            
+
+
+          
+          <div class="footer" style="background-color: #e1ffc2;">
+            <div class="row">
+              <div class="col-lg-4">
+                <h4><b>ABOUT US</b></h4>
+                <div class="container" >
+                <p>100% ORIGINAL guarantee for all products at myntra.com. Return within 30days of receiving your order. Get free delivery for every order above Rs. 799</p>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <h4><b>IMPORTANT LINKS</b></h4>
+                  <ul id="uli">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Feedback</a></li>
+                  </ul>
+              </div>
+              
+              <div class="col-lg-4">
+                <h4><b>FOLLOW US</b></h4>
+                <div class="row">
+                  <div id="facebook">
+                  <a href="#"><span class="icon1 fa fa-facebook fa-2x"></span></a>
+	                <a href="#"><span class=" icon2 fa fa-instagram fa-2x"><a href="#"></a></span></a>
+                  <a href="#"><span class=" icon3 fa fa-twitter fa-2x"><a href="#"></a></span></a>
+                  </div>
+                </div>
+              </div>
+              
+              
+            </div>
+            
+            
+          </div>
+          <div class="cr"><h6 >© 2020 Copyright: <a href="#">www.flutterfly.com</a></h6></div>
+
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    </body>
+</html>

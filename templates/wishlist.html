@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if available==True: %}
+<style>
+    .button {
+    background-color: #212121 ;
+    border: none;
+    color: rgb(245, 239, 243);
+    text-decoration: none;
+    font-size: 25px;
+  }
+  
+  .button5 {border-radius: 35%;}
+  
+  </style>
+<div class="jumbotron-fluid grey row">
+<h4>  <b class="text-justify font-weight-bold text-black text-uppercase" style="margin-left: 410px;">The content is present inside the cart</b> </h4>  
+</div>
+<hr>
+{% endif %}
+{% for i in l:%}
+
+
+
+<section id="exit">
+
+
+
+<div class="row cardcon " style="padding:30px 150px;position: relative;">
+  
+      <div class="col-lg-12">
+         <div class= "cardgirlout row">
+  <div class="col-lg-3">
+  <img class="card-girl rounded" src="/static/images/{{i.image}}" style="width: 200px; height: 300px;">
+  </div>
+  <div class="col-lg-9"><br>
+  <h1 style="font-family: 'Roboto', sans-serif;font-size:40px; text-align:left;">{{i.brand}}</h1>
+  <hr><br><b><h4 style="text-align: left;">₹{{i.price}}</h4>
+    <h5 style="text-align: left;">Quantity : <button class="button button5">{{i.quantity}}</button>        </h5>
+    <h5 style="text-align: left;">Size : <button class="button button5">{{i.size}}</button></h5>
+  <h3 style="font-size: 16px;color: rgb(131, 111, 111);text-align:left;">100% Original  
+   Products
+               Free Delivery on order above Rs. 799BR
+               00% Original <br>Products
+               Free Delivery on order above Rs. 799BR00% Original Products
+               Free Delivery <br> on order above Rs. 799
+               </h3>
+  <!-- <div class="dropdowns">
+    <button type="button"onclick="show_hide()"class=" dropbutton" style="font-family: 'Ubuntu'">Qty <i class="fas fa-arrow-down"></i></button>
+    <div id="droplist" style="display:none;">
+      <a href="#">1</a>
+          <a href="#">2</a>
+            <a href="#">3</a>
+              <a href="#">4</a>
+              <a href="#">5</a>
+  
+  
+  </div>
+  </div> -->
+  <hr>
+  <a href="removewishlist+{{i.image}}+{{i.dress_type}}+{{i.brand}}+{{i.colour}}+{{i.price}}+{{i.gender}}+{{i.quantity}}+{{i.size}}"><button type="submit" class="btn boot-btn"style="color:white; margin-bottom:40px; margin-right:30px;">REMOVE</button></a>
+  <a href="wishlistaddtocart+{{i.image}}+{{i.dress_type}}+{{i.brand}}+{{i.colour}}+{{i.price}}+{{i.gender}}+{{i.quantity}}+{{i.size}}"><button type="submit" class="btn  btn-outline-danger">ADD TO CART</button></a>
+  
+  </div>
+  
+  </div>
+  
+      </div>
+      </div>
+
+        </section>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,403 @@
+<html>
+    <head>
+        <title>www.flutterfly.com</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="static/styles/styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courgette&family=Roboto:wght@300&family=Satisfy&display=swap" rel="stylesheet">
+        
+        <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        -->
+
+        <!-- google fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courgette&family=Roboto:wght@300&family=Satisfy&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Pacifico&family=Play&family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+        
+    </head>
+    <body>
+              <nav class="navbar navbar-expand-lg navbar-light " id="custom-nav" style="background-color: #ffffff;">
+            <a class="navbar-brand" href="#"><img class="rounded-circle" id="logo" src="/static/images/logo.png" ></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" id="text">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" id="text">
+                  <a class="nav-link" href="users">Users</a>
+                </li>
+                <li class="nav-item dropdown" id="text">
+                  <a class="nav-link" href="m">Oders</a>
+                </li>
+                
+                {% if email :%}
+                <li class="nav-item dropdown" id="text">
+                  <a class="nav-link" href="logout">Logout</a>
+                </li>
+                <li class="nav-item dropdown" id="text">
+                  <a class="nav-link" href="myorders">My Orders</a>
+                </li>
+                {% else %}
+                <li class="nav-item dropdown" id="text">
+                  <a class="nav-link" href="signin">Login</a>
+                </li>
+                <li class="nav-item dropdown" id="text">
+                  <a class="nav-link" href="signup">Register</a>
+                </li>
+              
+                {% endif %}
+                
+              </ul>
+              <form action="search" method="POST" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" id="search" name="search" placeholder="Search">
+               <i class="fa fa-search fa-2x"></i>
+              </form>
+            </div>
+            <div class="d-flex flex-row-reverse">
+              <div class="icons" ><a href="cartroller"><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+              </svg></a></div>
+            <a href="wishlist"><svg width="2em" height="2.2em" viewBox="0 0 16 16" class="bi bi-layout-sidebar-inset" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M14 2H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"/>
+              <path d="M3 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"/>
+            </svg></a>
+              
+                </div>
+              </div>  
+              
+              
+              
+              
+                
+            
+          </nav>
+          <br>
+
+
+<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active"data-interval="2500">
+        <div class="bg1">
+           <img  class="hm"src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/1200px-H%26M-Logo.svg.png" alt="">
+          <h1 class="karlie-headline">Get the bossy look from the <br> New Classic Women's Formals collection</h1>
+         
+          <div class="red">
+            Up to 50% off
+           New sale styles added
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item"data-interval="2500">
+      <div class="bg2">
+        <img  class="sale"src="images/levissale.png" alt="">
+        <img  class="levis "src="images/levis.png" alt="">
+        <img class="hailey"src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fwp-content%2Fblogs.dir%2F6%2Ffiles%2F2019%2F04%2Fhailey-baldwin-bieber-levis-501-denim-jeans-shorts-campaign-festival-1.jpg?q=75&w=800&cbr=1&fit=max" alt="">
+  
+      </div>
+      </div>
+      <div class="carousel-item"data-interval="2500">
+        <div class="bg3">
+          <img  class="gap" src="https://logo-logos.com/wp-content/uploads/2016/10/GAP_logo_black.png" alt="">
+  <div class="gap-con">
+    <small>INTRODUCING THE</small>
+    <h1 class="gap-headline">Spring collection</h1>
+  </div>
+  
+        </div>
+      </div>
+      <div class="carousel-item"data-interval="2500">
+        <div class="bg4">
+  
+  <img class="brand"src="data:image/png;base64,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" alt="">
+  <small class="tagline">
+  THE NEW CLASSIC COLLECTION</small>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  
+  
+  
+  <!-- section2 -->
+
+<section id="content">
+<img class="girl1" src="https://www.fabindia.com/ccstore/v1/images/?source=/file/v2125009958289518405/products/10577603GR.f.210819.jpg" alt="">
+<p  class="paras "data-aos="fade-down"
+data-aos-easing="linear"
+data-aos-duration="1500">We welcome you back to our stores! Take a virtual store tour to see how we are ensuring a safe shopping environment for you. </p>
+<button type="button" data-aos="fade-down"
+data-aos-easing="linear"
+data-aos-duration="1500"  class=" btn-lg btn btn-success bot"><a href="#show"">KNOW MORE</a></button>
+<img class="girl2" src="https://media.missguided.com/i/missguided/DD923104_01?fmt=jpeg&fmt.jpeg.interlaced=true&$product-page__main--2x$" alt="">
+
+</section>
+
+  <div class="jumbotron-fluid">
+    <div class=" grey row">
+    <div class="col-lg-4">
+      <img class="log" src="/static/images/im1.png">
+      <p id="spoil"><b>100% ORIGINAL</b> </p>
+    
+    </div>
+    <div class="col-lg-4">
+      <img class="log" src="/static/images/im2.png">
+      <p id="spoil"><b>Return within 30days</b> </p>
+    
+    </div>
+    <div class="col-lg-4">
+      <img class="log" src="/static/images/im3.png">
+      <p id="spoil"><b>Get free delivery</b> </p>
+    
+    </div>
+    </div>
+  </div>
+
+  
+  
+  
+    
+
+    <div class="container shopcol" >
+      <h3 style="font-family: 'Satisfy', cursive; font-size: 40px;">Shop by colour.</h3> 
+      <a class="row">
+        <a href="yellow"><img id="other" src="/static/images/yellow.jpg"></a>
+        <a href="red"><img id="other" src="/static/images/red.jpg"></a>
+        <a href="blue"><img id="other" src="/static/images/blue.jpg"></a>
+        <a href="black"><img id="other" src="/static/images/black.jpg"></a>
+        </div>
+    </div>
+
+    <!-- section3 -->
+
+<section id="show">
+<h3 style="font-family: 'Satisfy', cursive; font-size: 40px; text-align: center;">Our Collections.</h3>
+
+
+<div class=" cont1 row">
+<div class=" box one col-lg-3" data-aos="zoom-in">
+
+      <img class="kurta-box" src="https://www.fabindia.com/ccstore/v1/images/?source=/file/v8355718874147929433/products/10557145YL.f.261118.jpg" alt="">
+   
+      <h2 class="kurta-head">KURTAS</h2>
+</div>
+<div class=" box two col-lg-3"data-aos="zoom-in">
+<img class="leggins-box"src="https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201802/15/00111976200011____2__516x640.jpg" alt="">
+<h2 class="leg-head">LEGGINS</h2>
+</div>
+<div class="box three col-lg-3"data-aos="zoom-in">
+    <a href="saree"><img class="saree-box" src="https://craftsvilla-prod-res.cloudinary.com/image/upload/f_auto/C/V/CV-35964-MCRAF29443891750-1537544404-Craftsvilla_1.jpg" alt="">
+    </a>
+<h2 class="saree-head">SAREE</h2>
+</div>
+<div class="box four col-lg-3"data-aos="zoom-in">
+    <a href="dress"><img  class="dress-box"src="https://img.ltwebstatic.com/images2_pi/2019/02/13/1550041496404332874_thumbnail_600x799.webp" alt="">
+</a>
+        <h2 class="dress-head">DRESS</h2>
+</div>
+
+</div>
+<div class="  row">
+<div class="box col-lg-3"data-aos="zoom-in">
+    <a href="ftop"><img class="tops-box"src="https://ae01.alicdn.com/kf/HTB13EeTLxjaK1RjSZFAq6zdLFXai/40-Top-Women-s-2019-Sliver-Cami-Wild-Style-Off-The-Shoulder-Tops-Sequins-Strapless.jpg_960x960.jpg" alt="">
+</a>
+        <h2 class="tshirt-head">TOPS</h2>
+</div>
+<div class="box col-lg-3"data-aos="zoom-in">
+<img  class="suit-box"src="https://i.pinimg.com/564x/f1/94/e7/f194e702eed393c4093bc412be735308.jpg" alt="">
+<h2 class="tshirt-head">SUITS</h2>
+</div>
+<div class=" box col-lg-3"data-aos="zoom-in">
+<img class="tshirt-box" src="https://contents.mediadecathlon.com/p1264301/k$41a08bf5f2c3edf46bd3577ff1050e66/run-dry-men-s-running-t-shirt-black.jpg?&f=800x800" alt="">
+<h2 class="tshirt-head2">T-SHIRTS</h2>
+</div>
+
+
+
+<div class=" box col-lg-3"data-aos="zoom-in">
+<img class="trouser-box" src="https://assets.ajio.com/medias/sys_master/root/hdb/h2c/14103794221086/-473Wx593H-460186149-pink-MODEL.jpg" alt="">
+<h2 class="tshirt-head2" style="margin-right:140px;">TROUSERS</h2>
+</div>
+
+</div>
+</section>
+
+    
+    <br><br>
+  <!--   <h3>#POPULAR BRANDS</h3> -->
+   <h3 style="font-family: 'Satisfy', cursive; font-size: 40px; text-align: center;">Our Brands.</h3>
+    <div class="container">
+    <div class="row">
+      
+      <a href="reebok"><img id="other" src="/static/images/reebok.jpg"></a>
+      <a href="nike"> <img id="other" src="/static/images/nike.png"></a>
+        <a href="hm"> <img id="other" src="/static/images/h&m.png"></a>
+            <a href="puma"> <img id="other" src="/static/images/puma.png"></a>
+    </div>
+    <div class="row">
+        <a href="gap">  <img id="other" src="/static/images/gap.jpg"></a>
+            <a href="pant">  <img id="other" src="/static/images/pant.png"></a>
+                <a href="lui">  <img id="other" src="/static/images/lui.png"></a>
+                    <a href="gucci">  <img id="other" src="/static/images/gucci.png"></a>
+    </div>
+    </div>
+
+        
+          
+    <style media="screen">
+
+      .shop-dress{
+        height:400px;
+        border-radius: 40px;
+      }
+      .shopping{
+        padding: 50px 50px ;
+        background-color: #f5f5f5;
+      }
+      .shop-icon{
+        display: inline-block;
+        color: #e7305b;
+      }
+      
+      #cart h2{
+      
+        display: inline-block;
+        margin-left: 0px;
+        margin-right: 5px;
+        font-family: 'Ubuntu', sans-serif;
+      }
+      #cart h1{
+        margin-top: 10px;
+        font-size: 21px;
+        font-family: 'Ubuntu', sans-serif;
+      
+      
+       }
+       #cart p{
+         color: #e7305b;
+         font-size: 18px;
+         font-family: 'Ubuntu', sans-serif;
+      
+       }
+       #cart h3{
+         font-size: 16px;
+         color: #e7305b;
+      
+       }
+        .but{
+         border-color: grey;
+         margin: 15px 0px ;
+         padding: 5px 10px;
+         border-color: grey;
+         background-color: white;
+         border-radius: 50px;
+        font-family: 'Play', sans-serif;
+        font-weight:500;
+      
+       }
+       .but a{border-color: grey;
+      color: black;
+      text-decoration: none;
+       border-color: grey;
+       background-color: white;
+       border-radius: 50px;
+      font-family: 'Play', sans-serif;
+      font-weight:500;
+      }
+       .but:hover{
+         border-color: #e7305b;
+        font-family: 'Play', sans-serif;
+       }
+       .but:active{
+      
+       border-radius: 50px;
+      
+       }
+       .boot-btn{
+         background-color:#e7305b;
+         border-color: #e7305b;
+           margin-top: 40px;
+           font-family: 'Ubuntu', sans-serif;
+       }
+       .boot-btn:hover{
+         background-color: #f76a8c;
+          border-color: #f76a8c;
+          font-family: 'Ubuntu', sans-serif;
+      }
+              </style>
+              
+      
+      
+                
+                <div class="footer" style="background-color: #e1ffc2;">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <h4><b>ABOUT US</b></h4>
+                      <div class="container" >
+                      <p>100% ORIGINAL guarantee for all products at myntra.com. Return within 30days of receiving your order. Get free delivery for every order above Rs. 799</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <h4><b>IMPORTANT LINKS</b></h4>
+                        <ul id="uli">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                      <h4><b>FOLLOW US</b></h4>
+                      <div class="row">
+                        <div id="facebook">
+                        <a href="#"><span class="icon1 fa fa-facebook fa-2x"></span></a>
+                        <a href="#"><span class=" icon2 fa fa-instagram fa-2x"><a href="#"></a></span></a>
+                        <a href="#"><span class=" icon3 fa fa-twitter fa-2x"><a href="#"></a></span></a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    
+                  </div>
+                  
+                  
+                </div>
+                <div class="cr"><h6 >© 2020 Copyright: <a href="#">www.flutterfly.com</a></h6></div>
+      
+      
+      
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+      
+          </body>
+      </html>

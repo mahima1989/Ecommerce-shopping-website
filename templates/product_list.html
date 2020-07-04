@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="sidenav" style="width: 200px;
+          position: fixed;
+          z-index: 1;
+          top: 100px;
+          left: 10px;
+          background: #fff;
+          overflow-x: hidden;
+          padding: 8px 0;
+          text-align: center;">
+            <h1 class="text-center" style="  font-family: 'Satisfy', cursive; font-size:50px;">Sort by</h1>
+            <hr>
+            <h4>~Price~</h4>
+            <a href='2500' style="color:#9e9e9e;text-decoration: none;" class="activity"><h6>less than 2500</h6></a>
+            <a href="4000" style="color:#9e9e9e;text-decoration: none;" class="activity"><h6>2500-4000</h6></a>
+            <a href="6000" style="color:#9e9e9e;text-decoration: none;" class="activity"><h6>5000-6000</h6></a>
+            <a href="8000" style="color:#9e9e9e;text-decoration: none;" class="activity"><h6>more than 6000</h6></a>
+            <hr>
+            <h4>~Brand~</h4>
+            <a href='hm' style="color:#9e9e9e;text-decoration: none;" class="activity"><h6>H&M</h6></a>
+            <a href="lui" style="color:#9e9e9e;text-decoration: none;" class="activity"><h6>Louis Vuitton</h6></a>
+            <a href="nike" style="color:#9e9e9e;text-decoration: none;" class="activity"><h6>Nike</h6></a>
+            <a href="reebok" style="color:#9e9e9e;text-decoration: none;" class="activity"><h6>Reebok</h6></a>
+            <a href="puma" style="color:#9e9e9e;text-decoration: none;" class="activity"><h6>Puma</h6></a>
+            <a href="pant" style="color:#9e9e9e;text-decoration: none;" class="activity"><h6>Pantaloons</h6></a>
+            <a href="gap" style="color:#9e9e9e;text-decoration: none;" class="activity"><h6>GAP</h6></a>
+            
+            
+          </div>
+          <div class="main" style="margin-left: 200px; 
+          padding: 0px 10px;">
+    <div class="row ">
+{% for i in products:%}
+<form action="cart+{{i.image}}+{{i.dress_type}}+{{i.brand}}+{{i.colour}}+{{i.price}}+{{i.gender}}" method="POST" >
+<div class="col item  float-left">
+
+  <a data-toggle="modal" data-target="#exampleModalCenter{{i.image}}"> <img src="/static/images/{{i.image}}" class="hovereffect rounded"></a>
+ <br>  <b>{{i.brand}}</b><br>
+ ₹{{i.price}}
+
+</div>
+
+  <div class="modal fade bd-example-modal-lg" id="exampleModalCenter{{i.image}}">
+    <div class="modal-dialog modal-lg"role="document">
+      <div class="modal-content">
+        
+        <section id="cart">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="row shopping">
+            <div class="col-lg-6">
+<img class="shop-dress" src="/static/images/{{i.image}}">
+            </div>
+            <div class="col-lg-6" style="text-align:left;">
+              <!-- <i class="fas fa-shopping-cart shop-icon fa-3x"></i> -->
+              <!-- <i class="fas fa-shopping-bag" style="margin-right:12px;"></i>
+              <i class="fas fa-bookmark"style="margin-right:12px;"></i> -->
+              <h2 style="margin-left: 100px;">{{i.brand}}</h2><br>
+              <small>Newyork Midnight Black</small>
+              <h1>₹{{i.price}}</h1>
+              <small>Inclusive of all taxes.</small><hr>
+               <h4 style="font-size:20px; margin-top: 10px;margin-left: 110px;">SELECT SIZE</h4>
+               <div class="form-check form-check-inline" style="margin-left: 70px;">
+                <input class="form-check-input" type="radio" name="size" id="XS" value="XS">
+                <label class="form-check-label" for="XS">XS</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="size" id="S" value="S">
+                <label class="form-check-label" for="S">S</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="size" id="M" value="M">
+                <label class="form-check-label" for="M">M</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="size" id="L" value="L">
+                <label class="form-check-label" for="L">L</label>
+              </div>
+               <hr>
+                     <input name="quantity" id="quantity" placeholder="Add Quantity" style="margin-left: 70px;" required><hr>
+                     <button type="submit" class="btn btn-secondary  boot-btn" style="margin-left: 100px;"> ADD TO BAG</button>
+                 <h3 style="margin-top:60px;">100% Original Products
+               Free Delivery on order above Rs. 799
+               </h3>
+              
+              
+
+
+            </div>
+          </div>
+
+        </section>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+</form>
+
+{% endfor %}
+</div>
+
+{% endblock %}
