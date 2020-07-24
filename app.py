@@ -3,14 +3,17 @@ from flask import Flask,render_template,request,session
 from datetime import timedelta
 
 db=pymongo.MongoClient(host='localhost',port=27017)
-mydb=db["website"]
-products=mydb.products
+mydb=db["Website"]
+products=mydb.Products
 reg=mydb.Register
 add_to_cart=mydb.cart
 adm=mydb.Admin
 wl=mydb.wishlist
 orders=mydb.Orders
 stat=mydb.Status
+
+
+
 
 record={'name':'aditi'}
 
@@ -19,9 +22,7 @@ app.secret_key="hello"
 app.permanent_session_lifetime = timedelta(days=366)
 #######  add those line here
 
-
-
-@app.route('/')
+@app.route('/home')
 def home():
     email=session['email']
     return render_template('main.html',email=email)
@@ -106,11 +107,14 @@ def f():
     #l = [i for i in products.find({'gender':'F','price':{'$and':[{'$gt':price-500,'$lt':price+500}]}})]
     return render_template('product_list.html',products=product,email=email)    
 
+
 @app.route('/m')
 def m():
     email=session['email']
     product= [i for i in products.find({'gender':'M'})]
+    #l = [i for i in products.find({'gender':'F','price':{'$and':[{'$gt':price-500,'$lt':price+500}]}})]
     return render_template('product_list.html',products=product,email=email)    
+
 
 @app.route('/yellow')
 def yellow():
@@ -160,12 +164,19 @@ def eight():
     product= [i for i in products.find({'price':{'$lt':8000,'$gt':6000}})]
     return render_template('product_list.html',products=product,email=email)
 
+@app.route('/adminhome')
+def adminhome():
+    email=session['email']
+    return render_template('adminhome.html',email=email)
+
 @app.route('/admin',methods=['POST','GET'])
 def admin():
     email=session['email']
     authid=request.form['authid']
-    return render_template('adminhome.html',email=email)
-
+    if(authid=='12345'):
+        return render_template('adminhome.html',email=email,auth=None)
+    else:
+        return render_template('adminhome.html',email=email,auth='The Authentication ID is Incorrect')
     # users=[i for i in reg.find()]
     # return render_template('admin.html',name='users are {}'.format(users))
 
@@ -222,10 +233,10 @@ def cart(image,dress_type,brand,colour,price,gender):
         sub_total=sum+100
         return render_template('cart.html',l=l,available=False,total=sum,email=email,sub_total=sub_total)  
     else:
-        l = [i for i in add_to_cart.find({'email':email,})]
+        l = [i for i in add_to_cart.find({'email':email})]
         sum=0
         for i in l:
-            sum=sum + int(i['price'])*(i['quantity'])
+            sum=sum + int(i['price'])
         sub_total=sum+100
         return render_template('cart.html',l=l,available=True,total=sum,email=email,sub_total=sub_total)
 
@@ -286,11 +297,11 @@ def wishlistroller():
         return render_template('wishlist.html',l=l,email=email)
 
 
-@app.route('/signin')
+@app.route('/')
 def signin():
     return render_template('signin.html')
 
-@app.route('/',methods=['POST','GET'])
+@app.route('/signinform',methods=['POST','GET'])
 def signinform():
     session.permanent=True
     email=request.form['email']
@@ -305,13 +316,12 @@ def signinform():
 
 @app.route('/signup')
 def signup():
-    email=session['email']
-    return render_template('signup.html',email=email)
+    return render_template('signup.html')
 
 
 @app.route('/signupform',methods=['POST','GET'])
 def signupform():
-    email=session['email']
+    
     fname=request.form['fname']
     lname=request.form['lname']
     email=request.form['email']
@@ -329,30 +339,42 @@ def logout():
     session.pop('email',None)
     return render_template('main.html',email=None)
 
-@app.route('/search',methods=['POST'])
-def search():
+# @app.route('/buynow')
+# def buynow():
+#     email=session['email']
+    
+#     order=[i for i in (add_to_cart.find({'email':email}))]
+#     i=order[-1]
+#     email=i['email']
+#     price=i['price']
+#     add_to_cart.remove({'email':email})
+#     names=[j for j in reg.find({'email':email})]
+#     k=names[0]
+#     name=k['fname']
+    
+#     orders.insert_one({'email':email,'price':price,'status':'Order Accepted'})   
+#     return render_template('feedback.html',email=email,name=name)
+
+@app.route('/feedback')
+def feedback():
     email=session['email']
-    search = request.form['search']
-    search=search.split(' ')
-    for i in products.find({'$and':[{'dress_type':{'$in':[search[0],search[1],search[2]]}},{'colour':{'$in':[search[0],search[1],search[2]]}},{'brand':{'$in':[search[0],search[1],search[2]]}}]}):
-        print(i)
-    return 'done'
+    names=[j for j in reg.find({'email':email})]
+    k=names[0]
+    name=k['fname']
+    return render_template('feedback.html',email=email,name=name)
 
 @app.route('/buynow')
 def buynow():
     email=session['email']
     
     order=[i for i in (add_to_cart.find({'email':email}))]
-    i=order[-1]
-    email=i['email']
-    price=i['price']
-    add_to_cart.remove({'email':email})
-    names=[j for j in reg.find({'email':email})]
-    k=names[0]
-    name=k['fname']
-    
-    orders.insert_one({'email':email,'price':price,'status':'Order Accepted'})   
-    return render_template('feedback.html',email=email,name=name)
+    for i in order:
+        email=i['email']
+        image=i['image']
+        price=i['price']
+        orders.insert_one({'email':email,'image':image,'price':price,'status':'Pending'})   
+    add_to_cart.remove({'email':email})    
+    return render_template('final.html',email=email)
 
 @app.route('/adminorders')
 def adminorders():
@@ -360,22 +382,34 @@ def adminorders():
     order=[i for i in orders.find()]
     return render_template('orders.html',orders=order,email=email)
 
-@app.route('/accept+<email>+<price>')
-def accept(email,price):
-    email=session['email']
-    stat.insert_one({'email':email,'price':price,'status':'Dispatched'})
-    return render_template('orders.html',email=email)
+@app.route('/accept+<email>+<price>+<image>')
+def accept(email,price,image):
+    orders.update_one({'image':image,'email':email,'price':price},{'$set':{'status':'Order Accepted'}})
+    status='Order Accepted'
+    order=[i for i in orders.find()]
+    return render_template('orders.html',status=status,orders=order,email=email)
+
+@app.route('/dispatch+<email>+<price>+<image>')
+def dispatch(email,price,image):
+    orders.update_one({'email':email,'image':image,'price':price},{'$set':{'status':'Dispatched'}})
+    status='Dispatched'
+    order=[i for i in orders.find()]
+    return render_template('orders.html',status=status,orders=order,email=email)
+
+@app.route('/deliver+<email>+<price>+<image>')
+def deliver(email,price,image):
+    orders.update_one({'email':email,'price':price,'image':image},{'$set':{'status':'Delivered'}})
+    status='Delivered'
+    order=[i for i in orders.find()]
+    return render_template('orders.html',status=status,orders=order,email=email)
+
 
 @app.route('/myorders')
 def myorders():
     email=session['email']
-    if(stat.find({'email':email,'status':'Dispatched'})):
-        l= [i for i in stat.find({'email':email,'status':'Dispatched'})]
-        
-    else:
-        l=[i for i in orders.find({'email':email})]
-    return render_template('myorders.html',hello=l,email=email)
-
+    myorders=[i for i in orders.find({'email':email})]
+    return render_template('myorders.html',hello=myorders,email=email)
+    
 
 if __name__ == "__main__":
     app.run(debug=True)    

@@ -33,23 +33,21 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active" id="text">
-                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="adminhome">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item" id="text">
                   <a class="nav-link" href="users">Users</a>
                 </li>
                 <li class="nav-item dropdown" id="text">
-                  <a class="nav-link" href="m">Oders</a>
+                  <a class="nav-link" href="adminorders">Orders</a>
                 </li>
                 
                 {% if email :%}
                 <li class="nav-item dropdown" id="text">
                   <a class="nav-link" href="logout">Logout</a>
                 </li>
-                <li class="nav-item dropdown" id="text">
-                  <a class="nav-link" href="myorders">My Orders</a>
-                </li>
                 {% else %}
+
                 <li class="nav-item dropdown" id="text">
                   <a class="nav-link" href="signin">Login</a>
                 </li>
@@ -60,23 +58,8 @@
                 {% endif %}
                 
               </ul>
-              <form action="search" method="POST" class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" id="search" name="search" placeholder="Search">
-               <i class="fa fa-search fa-2x"></i>
-              </form>
+
             </div>
-            <div class="d-flex flex-row-reverse">
-              <div class="icons" ><a href="cartroller"><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-              </svg></a></div>
-            <a href="wishlist"><svg width="2em" height="2.2em" viewBox="0 0 16 16" class="bi bi-layout-sidebar-inset" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M14 2H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"/>
-              <path d="M3 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"/>
-            </svg></a>
-              
-                </div>
-              </div>  
-              
               
               
               
@@ -107,8 +90,8 @@
       </div>
       <div class="carousel-item"data-interval="2500">
       <div class="bg2">
-        <img  class="sale"src="images/levissale.png" alt="">
-        <img  class="levis "src="images/levis.png" alt="">
+        <img  class="sale" src="/static/images/levissale.png" alt="">
+        <img  class="levis " src="/static/images/levis.png" alt="">
         <img class="hailey"src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fwp-content%2Fblogs.dir%2F6%2Ffiles%2F2019%2F04%2Fhailey-baldwin-bieber-levis-501-denim-jeans-shorts-campaign-festival-1.jpg?q=75&w=800&cbr=1&fit=max" alt="">
   
       </div>

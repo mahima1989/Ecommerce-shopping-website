@@ -33,31 +33,31 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active" id="text">
-                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="adminhome">Home <span class="sr-only">(current)</span></a>
                 </li>
+                {% if email :%}
                 <li class="nav-item" id="text">
                   <a class="nav-link" href="user">Users</a>
                 </li>
                 <li class="nav-item dropdown" id="text">
-                  <a class="nav-link" href="adminorders">All Orders</a>
+                  <a class="nav-link" href="adminorders">Orders</a>
                 </li>
+                <li class="nav-item dropdown" id="text">
+                  <a class="nav-link" href="logout">Logout</a>
+                </li>
+                {% else %}
                 <li class="nav-item dropdown" id="text">
                   <a class="nav-link" href="signin">Login</a>
                 </li>
                 <li class="nav-item dropdown" id="text">
                   <a class="nav-link" href="signup">Register</a>
                 </li>
+{% endif%}
+               
               </ul>
-              <form action="search" method="POST" class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" id="search" name="search" placeholder="Search">
-               <i class="fa fa-search fa-2x"></i>
-              </form>
-            </div>
-            <div class="d-flex flex-row-reverse">
-              <div class="icons" ><a href="cartroller"><i class="fa fa-shopping-cart fa-2x"></i></a></div>
-              <div class="icons" ><i class="fa fa-user fa-2x"></i></div>
               
-                </div>
+            </div>
+            
               </div>  
             </nav>
           <br>

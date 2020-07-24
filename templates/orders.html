@@ -15,115 +15,149 @@
         -->
 
         <!-- google fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courgette&family=Roboto:wght@300&family=Satisfy&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Pacifico&family=Play&family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-        
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light " id="custom-nav" style="background-color: #ffffff;">
-            <a class="navbar-brand" href="#"><img class="rounded-circle" id="logo" src="/static/images/logo.png" ></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active" id="text">
-                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item" id="text">
-                  <a class="nav-link" href="user">Users</a>
-                </li>
-                <li class="nav-item dropdown" id="text">
-                  <a class="nav-link" href="adminorders">All Orders</a>
-                </li>
-                {% if email :%}
-                <li class="nav-item dropdown" id="text">
-                  <a class="nav-link" href="logout">Logout</a>
-                </li>
-                {% else %}
-                <li class="nav-item dropdown" id="text">
-                  <a class="nav-link" href="signin">Login</a>
-                </li>
-                <li class="nav-item dropdown" id="text">
-                  <a class="nav-link" href="signup">Register</a>
-                </li>
-                {% endif %}
-              </ul>
-              <form action="search" method="POST" class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" id="search" name="search" placeholder="Search">
-               <i class="fa fa-search fa-2x"></i>
-              </form>
-            </div>
-            <div class="d-flex flex-row-reverse">
-              <div class="icons" ><a href="cartroller"><i class="fa fa-shopping-cart fa-2x"></i></a></div>
-              <div class="icons" ><i class="fa fa-user fa-2x"></i></div>
+        <link href="https://f<html>
+          <head>
+              <title>www.flutterfly.com</title>
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+              <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+              <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+              <link rel="stylesheet" href="static/styles/styles.css">
+              <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courgette&family=Roboto:wght@300&family=Satisfy&display=swap" rel="stylesheet">
               
-                </div>
-              </div>  
-            </nav>
-          <br>
-          
-          
-            <div class="container" style="text-align: center;padding-left: 300px;">
-            {% for i in orders: %}
-            
-            <div class="card" style="width: 30rem;height: 15rem;background-color: #f5f5f5;">
+              <!--
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+              -->
+      
+              <!-- google fonts -->
+              <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courgette&family=Roboto:wght@300&family=Satisfy&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Pacifico&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Pacifico&family=Play&family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      
               
-              <div class="card-body"><br>
-                <h6>Order No.: {{i._id}}</h6>
-                <h6>User's Email: {{i.email}}</h6>
-                <h6>Price: {{i.price}}<br></h6>
-                <br><br>
-                <a href="accept+{{i.email}}+{{i.price}}" class="btn btn-primary" style="background-color: black;">Accept</a>
-                       
-              </div>
-            </div>
-            {% endfor %}
-            </div>
-
-
-
-          <div class="footer" style="background-color: #e1ffc2;">
-            <div class="row">
-              <div class="col-lg-4">
-                <h4><b>ABOUT US</b></h4>
-                <div class="container" >
-                <p>100% ORIGINAL guarantee for all products at myntra.com. Return within 30days of receiving your order. Get free delivery for every order above Rs. 799</p>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <h4><b>IMPORTANT LINKS</b></h4>
-                  <ul id="uli">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                  <li><a href="#">Feedback</a></li>
-                  </ul>
-              </div>
-              
-              <div class="col-lg-4">
-                <h4><b>FOLLOW US</b></h4>
-                <div class="row">
-                  <div id="facebook">
-                  <a href="#"><span class="icon1 fa fa-facebook fa-2x"></span></a>
-	                <a href="#"><span class=" icon2 fa fa-instagram fa-2x"><a href="#"></a></span></a>
-                  <a href="#"><span class=" icon3 fa fa-twitter fa-2x"><a href="#"></a></span></a>
+          </head>
+          <body>
+              <nav class="navbar navbar-expand-lg navbar-light " id="custom-nav" style="background-color: #ffffff;">
+                  <a class="navbar-brand" href="#"><img class="rounded-circle" id="logo" src="/static/images/logo.png" ></a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active" id="text">
+                        <a class="nav-link" href="adminhome">Home <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item" id="text">
+                        <a class="nav-link" href="users">Users</a>
+                      </li>
+                      <li class="nav-item dropdown" id="text">
+                        <a class="nav-link" href="adminorders">Orders</a>
+                      </li>
+                      {% if email :%}
+                      <li class="nav-item dropdown" id="text">
+                        <a class="nav-link" href="logout">Logout</a>
+                      </li>
+                      {% else %}
+                      <li class="nav-item dropdown" id="text">
+                        <a class="nav-link" href="signin">Login</a>
+                      </li>
+                      <li class="nav-item dropdown" id="text">
+                        <a class="nav-link" href="signup">Register</a>
+                      </li>
+                      {% endif %}
+                    </ul>
+                  
                   </div>
+                    </div>  
+                  </nav>
+                <br>
+                
+                
+                  <div class="container" style="text-align: center;padding-left: 70px;">
+                  {% for i in orders: %}
+                  <div class="card" style="width: 60rem;height: 22rem;box-shadow: 2px 2px 4px #bdbdbd;background-color: white;">
+                    <div class="row">
+                    <div class="col-sm-6"><img src="/static/images/{{i.image}}" style="height:260px;box-shadow: 2px 2px 10px #9e9e9e;margin-top: 40px;"></div>
+                    <div class="col-sm-6">
+                      <div class="card-body" style="margin-right: 16px;text-align: left; margin-top: 5px;"><br>
+                      <h6>Order No.: {{i._id}}</h6><hr>
+                      <h6>User's Email: {{i.email}}</h6><hr>
+                      <h6>Price: {{i.price}}<br></h6><hr>
+                      <h6>Status: {{i.status}}<br></h6>
+                      <br><br>
+                      <a href="accept+{{i.email}}+{{i.price}}+{{i.image}}" class="btn boot-btn"style="color:white;margin-top: 0px;">Accept</a>
+                      <a href="dispatch+{{i.email}}+{{i.price}}+{{i.image}}" class="btn boot-btn"style="color:white;margin-top: 0px;">Dispatch</a>
+                      <a href="deliver+{{i.email}}+{{i.price}}+{{i.image}}" class="btn boot-btn"style="color:white;margin-top: 0px;">Deliver</a>
+                      
+                    </div> 
+                    
+                  </div> 
+                    
+                             
+                    </div>
+                  </div>
+                  
+                  
+                  <!-- <div class="card" style="width: 35rem;box-shadow: 2px 2px 4px #bdbdbd;height: 15rem;background-color: white;">
+                    
+                    <div class="card-body" style="text-align: left;"><br>
+                      <h6>Order No.: {{i._id}}</h6>
+                      <h6>User's Email: {{i.email}}</h6>
+                      <h6>Price: {{i.price}}<br></h6>
+                      <h6>Status: {{i.status}}</h6>
+                      <br>
+                      <a href="accept+{{i.email}}+{{i.price}}" class="btn btn-primary" style="background-color: black;margin-left: 130px;">Accept</a>
+                      <a href="dispatch+{{i.email}}+{{i.price}}" class="btn btn-primary" style="background-color: black;">Dispatch</a>
+                      <a href="deliver+{{i.email}}+{{i.price}}" class="btn btn-primary" style="background-color: black;">Deliver</a>
+                            
+                    </div>
+                  </div> -->
+                  {% endfor %}
+                  </div>
+      
+      
+      
+                <div class="footer" style="background-color: #e1ffc2;">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <h4><b>ABOUT US</b></h4>
+                      <div class="container" >
+                      <p>100% ORIGINAL guarantee for all products at myntra.com. Return within 30days of receiving your order. Get free delivery for every order above Rs. 799</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <h4><b>IMPORTANT LINKS</b></h4>
+                        <ul id="uli">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                      <h4><b>FOLLOW US</b></h4>
+                      <div class="row">
+                        <div id="facebook">
+                        <a href="#"><span class="icon1 fa fa-facebook fa-2x"></span></a>
+                        <a href="#"><span class=" icon2 fa fa-instagram fa-2x"><a href="#"></a></span></a>
+                        <a href="#"><span class=" icon3 fa fa-twitter fa-2x"><a href="#"></a></span></a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    
+                  </div>
+                  
+                  
                 </div>
-              </div>
-              
-              
-            </div>
-            
-            
-          </div>
-          <div class="cr"><h6 >© 2020 Copyright: <a href="#">www.flutterfly.com</a></h6></div>
-
-
+                <div class="cr"><h6 >© 2020 Copyright: <a href="#">www.flutterfly.com</a></h6></div>
+      
+      
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>

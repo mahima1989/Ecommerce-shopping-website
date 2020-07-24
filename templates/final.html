@@ -1,0 +1,60 @@
+{% extends "main.html" %}
+{% block content%}
+
+
+      <div class="container">
+        
+  
+          
+              <h3>Billing Address</h3>
+              <div class="card" style="width: 35rem;box-shadow: 2px 2px 4px #bdbdbd;text-align: center;margin-left: 230px;">
+                <div class="card-body" style="text-align: center;padding-left: 100px;padding-top: 90px;">
+                <input type="text" class="form-control" name='fname' id='fname' placeholder="First Name" style="margin-bottom: 10px;width: 350px;">
+                <input type="text" class="form-control" name='lname' id='lname' placeholder="Last Name" style="margin-bottom: 10px;width: 350px;">
+                <input type="email" class="form-control" name='email' id='email' placeholder="Email" style="margin-bottom: 10px;width: 350px;">
+                
+                <input type="text" class="form-control" name='ph' id='ph' placeholder="Mobile No." style="margin-bottom: 10px;width: 350px;">
+                <input type="text" class="form-control" name='address' id='address1' placeholder="Address" style="margin-bottom: 10px;width: 350px;">
+                <input type="text" class="form-control" name='city' id='city' placeholder="City" style="margin-bottom: 10px;width: 350px;">
+                <input type="text" class="form-control" name='state' id='state' placeholder="State" style="margin-bottom: 10px;width: 350px;">
+                <input type="text" class="form-control" name='zip' id='zip' placeholder="Zip-code" style="margin-bottom: 10px;width: 350px;">
+                 </div>
+               </div> 
+                
+
+      
+
+<br>
+              
+
+              <h3>Card Details</h3>   
+        
+              <div class="icon-container">
+                <i class="fa fa-cc-visa fa-2x" style="color:navy;"></i>
+                <i class="fa fa-cc-amex fa-2x" style="color:blue;"></i>
+                <i class="fa fa-cc-mastercard fa-2x" style="color:red;"></i>
+                <i class="fa fa-cc-discover fa-2x" style="color:orange;"></i>
+              </div><br>
+
+
+              <div class="card" style="width: 35rem;height: 25rem;box-shadow: 2px 2px 4px #bdbdbd;margin-left: 230px;">
+                <br>
+                <div class="card-body" style="text-align: center;margin-left: 80px;">
+                  
+              <input type="text" class="form-control" name='zip' id='zip' placeholder="Name on Card" style="margin-bottom: 10px;width: 350px;">
+              <input type="text" class="form-control" name='zip' id='zip' placeholder="Card Number" style="margin-bottom: 10px;width: 350px;">
+              <input type="text" class="form-control" name='zip' id='zip' placeholder="Expiry Month" style="margin-bottom: 10px;width: 350px;">
+              <input type="text" class="form-control" name='zip' id='zip' placeholder="Expiry Year" style="margin-bottom: 10px;width: 350px;">
+              <input type="text" class="form-control" name='zip' id='zip' placeholder="CVV" style="margin-bottom: 10px;width: 350px;">
+              
+          
+          
+            </div></div>
+          <a href="feedback"><button class="btn boot-btn"style="color:white;width:100px;margin-top: 0px;">Submit</button></a>
+        
+        
+      </div>
+   
+
+
+{% endblock %}

@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>www.flutterfly.com</title>
+        <title>FlutterFly</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -8,11 +8,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="static/styles/styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courgette&family=Roboto:wght@300&family=Satisfy&display=swap" rel="stylesheet">
-        
-        <!--
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        -->
+
 
         <!-- google fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courgette&family=Roboto:wght@300&family=Satisfy&display=swap" rel="stylesheet">
@@ -20,8 +16,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Pacifico&family=Play&family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courgette&family=Roboto:wght@300&family=Satisfy&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Raleway:wght@300&display=swap" rel="stylesheet">
 
-        
+
     </head>
     <body>
               <nav class="navbar navbar-expand-lg navbar-light " id="custom-nav" style="background-color: #ffffff;">
@@ -29,12 +32,13 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-          
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item active" id="text">
-                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                                <li class="nav-item active" id="text">
+                  <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
                 </li>
+
                 <li class="nav-item" id="text">
                   <a class="nav-link" href="f">Women</a>
                 </li>
@@ -50,50 +54,584 @@
                 </li>
                 {% else %}
                 <li class="nav-item dropdown" id="text">
-                  <a class="nav-link" href="signin">Login</a>
+                  <a class="nav-link" href="/">Login</a>
                 </li>
                 <li class="nav-item dropdown" id="text">
                   <a class="nav-link" href="signup">Register</a>
                 </li>
-              
+
                 {% endif %}
-                
+
               </ul>
-              <form action="search" method="POST" class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" id="search" name="search" placeholder="Search">
-               <i class="fa fa-search fa-2x"></i>
-              </form>
+
             </div>
             <div class="d-flex flex-row-reverse">
-              <div class="icons" ><a href="cartroller"><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-              </svg></a></div>
-            <a href="wishlistroller" style="text-decoration: none;"><svg width="2em" height="2.2em" viewBox="0 0 16 16" class="bi bi-layout-sidebar-inset" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M14 2H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"/>
-              <path d="M3 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"/>
-            </svg></a>
-              
+              <div class="icons" ><a href="cartroller"><i class="fas fa-shopping-cart shops-icon fa-2x" ></i></a></div>
+            <a href="wishlistroller" style="text-decoration: none;"> <i class="far fa-heart fa-2x shops-icon"></i></a>
+
                 </div>
-              </div>  
-              
-              
-              
-              
-                
-            
+              </div>
+
+              <!-- <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+              </svg>
+              <svg width="2em" height="2.2em" viewBox="0 0 16 16" class="bi bi-layout-sidebar-inset" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M14 2H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"/>
+                <path d="M3 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"/>
+              </svg> -->
+
+
+
+
           </nav>
           <br>
 
-         
+
 
        {% block content %}
           {% endblock %}
-          
-          
-            
-          
+
+
+
+
 <style media="screen">
 
+
+/*formalities*/
+#ban{
+/*padding:50px 150px;*/
+position: relative;
+}
+.gigi1{
+height:670px;
+position: relative;
+left:350px;
+}
+.gigi2{
+height:740px;
+
+}
+.gicon{
+height:400px;
+display: inline-block;
+background-color: #ff6363;
+z-index: 1;
+position:absolute;
+right:700px;
+padding: 100px 200px;
+top:270px;
+width:700px;
+
+}
+.gicon h1{
+font-size: 25px;
+color: white;
+}
+.gicon p{
+color: #f8eeee;
+}
+.gigi2con{
+height:580px;
+background-color: black;
+z-index: 1;
+position: absolute;
+display: inline-block;
+left:530px;
+padding: 150px 200px;
+width:860px;
+top:160px;
+
+
+}
+.gigi2con p{
+color:#32e0c4;
+margin-top: 30px;
+font-size: 18px;
+line-height: 1.5;
+}
+
+.part{
+margin-top: 80px;
+}
+.da{
+  margin-left: 0;
+}
+
+
+/*banner end*/
+.kareena{
+  height:810px;
+  position: relative;
+  left:330px;
+}
+.polka{
+  position: relative;
+  /* left:515px; */
+
+
+}
+.kk{
+  position: relative;
+}
+.kcon{
+
+}
+.kareena-black{
+  background-color: black;
+  height: 450px;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  width:560px;
+  top: 360px;
+  padding: 100px;
+}
+.kareena-black h1{
+  font-size: 25px;
+  margin-bottom: 30px;
+  /* color: #fd5e53; */
+  color: #fc3c3c;
+}
+.kareena-black p{
+  color: #fd5e53;
+}
+.midblack{
+  background-color: #eebb4d;
+  width:444px;
+  height: 625px;
+  left: 40px;
+  position: relative;
+    padding: 10px;
+}
+.heights{
+  /* height: 850px;
+  width: 500px; */
+  width: 500px;
+}
+.dpblack{
+  height: 625px;
+  position: relative;
+  left: 70px;
+
+}
+.middp small{
+  font-weight: bold;
+  position: relative;
+  top:150px;
+  left:100px;
+}
+.midblack small{
+  font-weight: bold;
+  position: relative;
+  top:270px;
+  left:80px;
+
+}
+.middp p{
+  font-size: 17px;
+  font-weight:450;
+position: relative;
+top:150px;
+}
+.midblack p{
+  font-size: 17px;
+  font-weight:350;
+position: relative;
+top:250px;
+}
+.middp{
+  padding: 20px;
+  display: inline-block;
+  background-color: #ffd31d;
+  height:512px;
+  width: 528px;
+  position: relative;
+  right:64px;
+  z-index: -1;
+  color: #e41749;
+
+}
+.kareena-mid-green{
+  height: 650px;
+  background-color: #ddf3f5;
+  width: 400px;
+  /* position: relative;
+  left: 50px; */
+  padding: 200px 10px;
+}
+.kareena-mid-green small{
+  position: relative;
+  font-weight: 600;
+  left:33px;
+  font-size: 15px;
+}
+.kareena-mid-green p{
+  font-size: 16px;
+}
+.kareena-right{
+  height: 650px;
+  position: relative;
+  right:80px;
+
+}
+.kareena-left{
+  height: 650px;
+}
+.parker{
+  position: relative;
+  margin: 100px 0px;
+}
+.park-man{
+  position: relative;
+  left:150px;
+}
+.parkcon{
+color: #3b6978;
+  height:380px;
+  background-color: black;
+  z-index: 1;
+  position: absolute;
+  display: inline-block;
+
+  padding: 100px 200px;
+  width:660px;
+  top:120px;
+}
+.parkcon h1{
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+/* .bag-content{
+height: 300px;
+  background-color: #ddf3f5;
+  padding: 100px 50px;
+  position: relative;
+}
+.bag-content h1 ,p{
+  display: inline-block;
+
+} */
+.lavie-bag{
+background-color: #ddf3f5;
+padding: 20px 50px;
+}
+.lav{
+
+ height: 350px;
+}
+.lav-con{
+  position: absolute;
+  top:60px;
+}
+.lav-logo{
+  height:100px;
+  position: relative;
+  right:245px;
+}
+
+/* Features Section */
+
+#features {
+  position: relative;
+  text-align: center;
+  background-color: #f4f6ff;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+}
+
+.feature-box {
+  padding: 4.5%;
+}
+
+.iconi {
+  color: #ef8172;
+  margin-bottom: 1rem;
+
+}
+
+.iconi:hover {
+  color: #ff4c68;
+}
+.colimg{
+  height: 200px;
+  width:300px;
+  margin: 30px;
+}
+.shopcol h2{
+  font-family: 'Merriweather', serif;
+  text-align: center;
+
+}
+.shopcol h1{
+  display: inline-block;
+  font-size: 21px;
+  margin: 0px 100px;
+  position: relative;
+  left: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  bottom:6px;
+}
+.shops-icon{
+display: inline-block;
+color: #e7305b;
+margin-right:2px;
+}
+
+
+/* NEW END */
+
+
+.paras{
+  display: inline-block;
+  width: 300px;
+  position: relative;
+  left:140px;
+  font-size: 22px;
+text-align: center;
+line-height: 1.5;
+top:50px;
+font-family: 'Pacifico', cursive;
+color: #3f3f44;
+}
+
+#other{
+    width:200px;
+    height:200px;
+    margin:30px;
+    border-radius: 100px;
+    box-shadow: 0px 4px 8px 0px rgba(189, 189, 189, 0.2), 0 6px 20px 0 rgba(189, 189, 189, 0.19);
+
+}
+#others{
+    width:200px;
+    height:200px;
+    margin:30px;
+
+    box-shadow: 0px 4px 8px 0px rgba(189, 189, 189, 0.2), 0 6px 20px 0 rgba(189, 189, 189, 0.19);
+
+}
+.shopcol{
+  padding:80px 130px;
+  background-color: #fff3cd;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+.one{
+
+  font-family: 'Nunito', sans-serif;
+}
+.one img{
+  border-radius: 0px;
+}
+.kurta-box,.leggins-box,.saree-box,.dress-box,.tshirt-box,.trouser-box,.tops-box,.suit-box{
+  border-radius: 0px;
+}
+.cont1,.cont3{
+  background-color: #fff7f7;
+
+
+}
+#show{
+  font-size: 16px;
+}
+.cont1 img{
+  height:260px;
+}
+.cont3 img{
+  height: 250px;
+}
+.tops-box{
+  height: 300px;
+
+  width:220px;
+  position: relative;
+  left:20px;
+}
+.suit-box{
+  height: 300px;
+  width:210px;
+  position: relative;
+left:20px;
+
+}
+.tshirt-box{
+  height: 300px;
+
+  position: relative;
+  right:px;
+  width:230px;
+}
+.icon1,.icon2,.icon3{
+  position: relative;
+  right:40px;
+  margin: 0 6px;
+  color: white;
+}
+/*footer*/
+.footer{
+    margin-top: 80px;
+    padding:80px;
+    padding-bottom: 20px;
+    text-align: center;
+
+
+}
+.footer h4{
+  position: relative;
+  left:70px;
+ font-family: 'Nunito', sans-serif;
+  color: white;
+}
+.footer h4,p{
+  text-align: left;
+}
+.footer p{
+  margin-top: 25px;
+  color:#888888;
+  font-family: 'Raleway', sans-serif;
+}
+#uli li{
+  margin-left: 70px;
+  text-align: left;
+}
+#uli a{
+  text-decoration: none;
+  color: #888888;
+}
+#uli a:hover{
+  color: white;
+}
+
+
+.icon1:hover,.icon2:hover,.icon3:hover{
+  color: #888888;
+
+}
+#facebook a{
+  color: #184d47;
+}
+.cr{
+  background-color: #3a3535;
+  padding: 20px;
+  margin: 0px;
+  text-align: center;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+
+color: white;
+font-family: 'Raleway', sans-serif;
+}
+
+.cr a{
+  text-decoration: none;
+  color: #888888;
+  font-size: 15px;
+}
+#logo{
+    margin:0px;
+    padding:0px;
+    height:45px;
+    width:auto;
+}
+#spoil{
+    margin-left:120px;
+    margin-top: 20px;
+    padding-top: 0px;
+}
+.jumbotron-fluid{
+    padding-top: 20px;
+    padding-bottom: 0px;
+    background-color: rgb(189, 189, 189);
+    color:rgb(255, 255, 255);
+}
+/*shops*/
+.shops-icon:hover{
+color: #fc9d9d;
+}
+.shop-dress{
+  height:400px;
+  border-radius: 40px;
+}
+.shopping{
+  padding: 50px 50px ;
+  background-color: #f5f5f5;
+}
+.shop-icon{
+  display: inline-block;
+  color: #e7305b;
+}
+
+#cart h2{
+
+  display: inline-block;
+  margin-left: 0px;
+  margin-right: 5px;
+  font-family: 'Ubuntu', sans-serif;
+}
+#cart h1{
+  margin-top: 10px;
+  font-size: 21px;
+  font-family: 'Ubuntu', sans-serif;
+
+
+ }
+ #cart p{
+   color: #e7305b;
+   font-size: 18px;
+   font-family: 'Ubuntu', sans-serif;
+
+ }
+ #cart h3{
+   font-size: 16px;
+   color: #e7305b;
+
+ }
+  .but{
+   border-color: grey;
+   margin: 15px 0px ;
+   padding: 5px 10px;
+   border-color: grey;
+   background-color: white;
+   border-radius: 50px;
+  font-family: 'Play', sans-serif;
+  font-weight:500;
+
+ }
+ .but a{border-color: grey;
+color: black;
+text-decoration: none;
+ border-color: grey;
+ background-color: white;
+ border-radius: 50px;
+font-family: 'Play', sans-serif;
+font-weight:500;
+}
+ .but:hover{
+   border-color: #e7305b;
+  font-family: 'Play', sans-serif;
+ }
+ .but:active{
+
+ border-radius: 50px;
+
+ }
+ .boot-btn{
+   background-color:#e7305b;
+   border-color: #e7305b;
+     margin-top: 40px;
+     font-family: 'Ubuntu', sans-serif;
+ }
+ .boot-btn:hover{
+   background-color: #f76a8c;
+    border-color: #f76a8c;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+/* new end2 */
 .shop-dress{
   height:400px;
   border-radius: 40px;
@@ -175,41 +713,41 @@ font-weight:500;
         </style>
 
 
-          
-          <div class="footer" style="background-color: #e1ffc2;">
-            <div class="row">
-              <div class="col-lg-4">
-                <h4><b>ABOUT US</b></h4>
-                <div class="container" >
-                <p>100% ORIGINAL guarantee for all products at myntra.com. Return within 30days of receiving your order. Get free delivery for every order above Rs. 799</p>
-                </div>
+
+        <div class="footer" style="background-color: #1b1919;">
+          <div class="row">
+            <div class="col-lg-4">
+              <h4><b>About Us</b></h4>
+              <div class="container" >
+              <p>Get the trendiest and the coolest collections in the market. 100% ORIGINAL guarantee for all products at flutterfly.com.</p>
               </div>
-              <div class="col-lg-4">
-                <h4><b>IMPORTANT LINKS</b></h4>
-                  <ul id="uli">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                  <li><a href="#">Feedback</a></li>
-                  </ul>
-              </div>
-              
-              <div class="col-lg-4">
-                <h4><b>FOLLOW US</b></h4>
-                <div class="row">
-                  <div id="facebook">
-                  <a href="#"><span class="icon1 fa fa-facebook fa-2x"></span></a>
-	                <a href="#"><span class=" icon2 fa fa-instagram fa-2x"><a href="#"></a></span></a>
-                  <a href="#"><span class=" icon3 fa fa-twitter fa-2x"><a href="#"></a></span></a>
-                  </div>
-                </div>
-              </div>
-              
-              
             </div>
-            
-            
+            <div class="col-lg-4">
+              <h4><b>Important Links</b></h4>
+                <ul id="uli">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4">
+              <h4 style="color:white;"><b>Follow Us</b></h4>
+              <div class="row">
+                <div id="facebook">
+                <a href="https://www.facebook.com/"><i class="fab icon1 fa-facebook-f fa-2x"></i></a>
+                <a href="https://www.instagram.com/"><i class="icon2 fab fa-instagram fa-2x"></i></a>
+                <a href="https://twitter.com/explore"><i class="icon3 fab fa-twitter fa-2x"></i></a>
+                </div>
+              </div>
+            </div>
+
+
           </div>
-          <div class="cr"><h6 >© 2020 Copyright: <a href="#">www.flutterfly.com</a></h6></div>
+
+
+        </div>
+        <div class="cr"><h6 >©Copyright : <a href="#">www.flutterfly.com</a></h6></div>
 
 
 
